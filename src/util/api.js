@@ -11,7 +11,7 @@ export const getTableData = () =>
 // field keys: user, url, animalName, animalPrice
 export const addTableRow = data =>
   fetch({
-    method: 'POST',
+    method: "POST",
     data: {
       typecast: true, // try to convert types if possible
       records: data
@@ -19,7 +19,7 @@ export const addTableRow = data =>
     url: `https://api.airtable.com/v0/appKCIlT1qpIxI73k/Zoo%20Hackathon%20Data`,
     headers: {
       Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
-      'Content-Type': 'application/json'
+      "Content-Type": "application/json"
     }
   })
     .then(data => data.json())
