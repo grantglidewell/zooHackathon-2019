@@ -1,7 +1,7 @@
 // TODO: protect tokens from the front end
 export const getTableData = () =>
   fetch(
-    `https://api.airtable.com/v0/appKCIlT1qpIxI73k/Zoo%20Hackathon%20Data?api_key=${AIRTABLE_API_KEY}`
+    `https://api.airtable.com/v0/appKCIlT1qpIxI73k/Zoo%20Hackathon%20Data?api_key=${process.env.AIRTABLE_API_KEY}`
   )
     .then(data => data.json())
     .catch(err => ({ err }));
