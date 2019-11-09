@@ -17,6 +17,10 @@ const mutations = {
 const actions = {
   login({ commit }, userData) {
     commit("SET_USER", userData);
+  },
+
+  logout({ commit }) {
+    commit("SET_USER", { email: "" });
   }
 };
 

@@ -4,6 +4,7 @@ import Router from "vue-router";
 import Form from "@/components/Form";
 
 import Landing from "@/views/Landing.vue";
+import Dashboard from "@/views/Dashboard.vue";
 
 Vue.use(Router);
 
@@ -15,6 +16,11 @@ export default new Router({
       path: "/",
       name: "Landing",
       component: Landing
+    },
+    {
+      path: "/dashboard",
+      name: "Dashboard",
+      component: Dashboard
     },
     {
       path: "/form",

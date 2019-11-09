@@ -1,7 +1,6 @@
 <template>
   <div class="landing">
     <div class="container">
-      {{ this.$store.state }}
       <Login v-if="showLogin" />
       <Register v-else />
       <div class="text-center mt-4">
