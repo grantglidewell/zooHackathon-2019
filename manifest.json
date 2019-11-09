@@ -1,0 +1,6 @@
+{
+  "name": "Report Animal Sales",
+  "version": "0.1",
+  "description": "tool for reporting animal sale data for conservation",
+  "manifest_version": 1
+}
