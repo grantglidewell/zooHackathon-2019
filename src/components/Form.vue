@@ -1,6 +1,5 @@
 <template>
   <div>
-    <p>test</p>
     <card>
       <span style="display: flex">
         <base-input v-model="url" label="url" style="flex: 3" />
@@ -15,7 +14,6 @@
 import { addTableRow } from "../util/api";
 export default {
   data: () => ({ url: "", name: "", price: "" }),
-  key: () => process.env.AIRTABLE_API_KEY,
   methods: {
     onSubmit: async function() {
       if (!this.url || !this.name || !this.price) {
@@ -24,7 +22,7 @@ export default {
       const res = await addTableRow([
         {
           fields: {
-            user: "testUser@test.cc",
+            user: this.$store.state.email,
             url: this.url,
             animalName: this.name,
             animalPrice: this.price
