@@ -5,9 +5,10 @@
       <Login v-if="showLogin" />
       <Register v-else />
       <div class="text-center mt-4">
-        <base-button @click="showLogin = !showLogin" type="primary">
-          {{ showLogin ? "Register" : "Login" }} Instead
-        </base-button>
+        <base-button
+          @click="showLogin = !showLogin"
+          type="primary"
+        >{{ showLogin ? "Register" : "Login" }} Instead</base-button>
       </div>
     </div>
   </div>
@@ -25,7 +26,10 @@ export default {
 
   data: () => ({
     showLogin: false
-  })
+  }),
+  mounted() {
+    this.$store.dispatch("getDashboardData");
+  }
 };
 </script>
 
