@@ -20,6 +20,8 @@ export default {
     if (this.$store.state.email && this.$route.path === "/") {
       this.$router.push({ path: "/dashboard" });
     }
+
+    this.$store.dispatch("getDashboardData");
   },
 
   watch: {

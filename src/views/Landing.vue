@@ -25,10 +25,7 @@ export default {
 
   data: () => ({
     showLogin: false
-  }),
-  mounted() {
-    this.$store.dispatch("getDashboardData");
-  }
+  })
 };
 </script>
 
