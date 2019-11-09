@@ -10,7 +10,7 @@ const state = {
 const mutations = {
   SET_USER(state, payload) {
     state.email = payload.email;
-    localStorage.setItem("email");
+    localStorage.setItem("email", payload.email);
   }
 };
 
@@ -20,8 +20,8 @@ const actions = {
   }
 };
 
-export default {
+export default new Vuex.Store({
   state,
   mutations,
   actions
-};
+});

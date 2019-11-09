@@ -36,7 +36,7 @@
   </div>
 </template>
 <script>
-// import { mapActions } from "vuex";
+/* eslint-disable no-console */
 
 export default {
   name: "register",
@@ -47,13 +47,11 @@ export default {
   }),
 
   methods: {
-    // ...mapActions("login"),
-
     onRegister() {
-      if (this.email) {
+      if (!this.email) {
         alert("You must enter an email");
       }
-      // this.login({ email: this.email });
+      this.$store.dispatch("login", { email: this.email });
     }
   }
 };
