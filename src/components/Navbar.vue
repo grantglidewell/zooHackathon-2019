@@ -50,6 +50,16 @@
         </ul>
         <ul v-else class="navbar-nav ml-auto">
           <li class="nav-item">
+            <router-link
+              to="/dashboard"
+              type="link"
+              class="nav-link nav-link-icon"
+            >
+              <i class="ni ni-bullet-list-67"></i>
+              <span class="nav-link-inner--text">Dashboard</span>
+            </router-link>
+          </li>
+          <li class="nav-item">
             <base-button
               @click="$store.dispatch('logout')"
               type="link"

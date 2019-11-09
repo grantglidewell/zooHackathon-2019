@@ -1,24 +1,23 @@
 <template>
   <div class="dashboard">
-    This is your dashboard, dear {{ this.$store.state.email }}
+    <div class="mb-3">
+      Welcome back,
+      <br />
+      <badge type="primary">{{ $store.state.email }}</badge>
+    </div>
     <card>
       <h3>Your recent entries:</h3>
-
-      <ul>
-        <li v-bind:key="item.fields.url" v-for="item in userEntries">{{ item.fields.animalName }}</li>
-      </ul>
+      <Entries />
     </card>
   </div>
 </template>
 
 <script>
+import Entries from "@/components/Entries";
+
 export default {
-  computed: {
-    userEntries() {
-      return this.$store.state.dashboardData.filter(
-        entry => entry.fields.user === this.$store.state.email
-      );
-    }
+  components: {
+    Entries
   }
 };
 </script>
