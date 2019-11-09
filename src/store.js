@@ -15,7 +15,7 @@ const mutations = {
     localStorage.setItem('email', payload.email);
   },
   SET_DASHBOARD_DATA(state, payload) {
-    state.dashboardData = payload;
+    state.dashboardData = payload.records;
   }
 };
 
