@@ -26,7 +26,6 @@ const actions = {
   async getDashboardData({ commit }) {
     const dashboardData = await getTableData();
     commit('SET_DASHBOARD_DATA', dashboardData);
-    commit('SET_USER', userData);
   },
   logout({ commit }) {
     commit('SET_USER', { email: '' });
