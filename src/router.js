@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
+import RequiresAuth from "@/middleware/RequiresAuth.vue";
 
 import Form from "@/components/Form";
 
@@ -20,12 +21,26 @@ export default new Router({
     {
       path: "/dashboard",
       name: "Dashboard",
-      component: Dashboard
+      component: RequiresAuth,
+      children: [
+        {
+          path: "",
+          name: "Dashboard",
+          component: Dashboard
+        }
+      ]
     },
     {
       path: "/form",
       name: "Form",
-      component: Form
+      component: RequiresAuth,
+      children: [
+        {
+          path: "",
+          name: "Form",
+          component: Form
+        }
+      ]
     }
   ]
 });
