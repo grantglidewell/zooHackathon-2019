@@ -1,7 +1,8 @@
+/* eslint-disable no-console */
 // TODO: protect tokens from the front end
-export const getTableData = () =>
+export const getTableData = async () =>
   fetch(
-    `https://api.airtable.com/v0/appKCIlT1qpIxI73k/Zoo%20Hackathon%20Data?api_key=${process.env.AIRTABLE_API_KEY}`
+    `https://api.airtable.com/v0/appKCIlT1qpIxI73k/Zoo%20Hackathon%20Data?api_key=keyJzTCwi1hTj3GPw`
   )
     .then(data => data.json())
     .catch(err => ({ err }));
@@ -9,18 +10,21 @@ export const getTableData = () =>
 // Data consists of an array of objects
 // key: fields, object with keys
 // field keys: user, url, animalName, animalPrice
-export const addTableRow = data =>
-  fetch({
-    method: "POST",
-    data: {
-      typecast: true, // try to convert types if possible
-      records: data
-    },
-    url: `https://api.airtable.com/v0/appKCIlT1qpIxI73k/Zoo%20Hackathon%20Data`,
-    headers: {
-      Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
-      "Content-Type": "application/json"
+export const addTableRow = async data => {
+  return fetch(
+    `https://api.airtable.com/v0/appKCIlT1qpIxI73k/Zoo%20Hackathon%20Data`,
+    {
+      method: 'POST',
+      body: JSON.stringify({
+        typecast: true,
+        records: data
+      }),
+      headers: {
+        Authorization: `Bearer keyJzTCwi1hTj3GPw`,
+        'Content-Type': 'application/json'
+      }
     }
-  })
+  )
     .then(data => data.json())
-    .catch(err => ({ err }));
+    .catch(console.error);
+};
