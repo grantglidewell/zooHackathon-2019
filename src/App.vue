@@ -26,6 +26,8 @@ export default {
     "$store.state.email"(email) {
       if (!email) {
         this.$router.push({ path: "/" });
+      } else {
+        this.$router.push({ path: "/dashboard" });
       }
     }
   }
