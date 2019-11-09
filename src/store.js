@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import getTableData from './util/api';
+import { getTableData } from './util/api';
 
 Vue.use(Vuex);
 
