@@ -14,6 +14,20 @@ export default {
   name: "app",
   components: {
     Navbar
+  },
+
+  mounted() {
+    if (this.$store.state.email && this.$route.path === "/") {
+      this.$router.push({ path: "/dashboard" });
+    }
+  },
+
+  watch: {
+    "$store.state.email"(email) {
+      if (!email) {
+        this.$router.push({ path: "/" });
+      }
+    }
   }
 };
 </script>

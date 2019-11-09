@@ -34,18 +34,30 @@
           </div>
         </div>
         <!-- Navbar items -->
-        <ul class="navbar-nav ml-auto">
+        <ul v-if="!$store.state.email" class="navbar-nav ml-auto">
           <li class="nav-item">
-            <router-link class="nav-link nav-link-icon" to="/register">
+            <base-button type="link" class="nav-link nav-link-icon">
               <i class="ni ni-circle-08"></i>
               <span class="nav-link-inner--text">Register</span>
-            </router-link>
+            </base-button>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link nav-link-icon" to="/login">
+            <base-button type="link" class="nav-link nav-link-icon">
               <i class="ni ni-key-25"></i>
               <span class="nav-link-inner--text">Login</span>
-            </router-link>
+            </base-button>
+          </li>
+        </ul>
+        <ul v-else class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <base-button
+              @click="$store.dispatch('logout')"
+              type="link"
+              class="nav-link nav-link-icon"
+            >
+              <i class="ni ni-key-25"></i>
+              <span class="nav-link-inner--text">Logout</span>
+            </base-button>
           </li>
         </ul>
       </template>
