@@ -6,7 +6,7 @@ Vue.use(Vuex);
 
 const state = {
   email: localStorage.getItem('email') || '',
-  dashboardData: {}
+  dashboardData: []
 };
 
 const mutations = {
