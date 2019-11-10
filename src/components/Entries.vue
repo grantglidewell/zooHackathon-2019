@@ -10,7 +10,7 @@
       >
       </entry>
     </ul>
-    <div class="text-center">
+    <div v-else class="text-center">
       No entries found.
     </div>
   </div>
