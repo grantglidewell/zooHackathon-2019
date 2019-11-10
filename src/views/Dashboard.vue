@@ -3,8 +3,10 @@
     <div class="mb-3">
       Welcome back, <badge type="primary">{{ $store.state.email }}</badge>
     </div>
-    <card shadow>
+    <card shadow class="mb-4">
       <Leaderboard />
+    </card>
+    <card shadow>
       <div class="d-sm-flex align-items-center text-center text-sm-left">
         <h3>Recent Entries:</h3>
         <div class="flex-grow-1"></div>

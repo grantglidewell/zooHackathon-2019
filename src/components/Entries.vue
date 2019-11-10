@@ -1,6 +1,6 @@
 <template>
   <div class="entries">
-    <ul v-if="entries" class="pl-0 list-unstyled">
+    <ul v-if="entries.length" class="pl-0 list-unstyled">
       <entry
         v-for="item in entries"
         :key="item.id"

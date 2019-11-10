@@ -1,56 +1,56 @@
-import Vue from 'vue';
-import Router from 'vue-router';
-import RequiresAuth from '@/middleware/RequiresAuth.vue';
+import Vue from "vue";
+import Router from "vue-router";
+import RequiresAuth from "@/middleware/RequiresAuth.vue";
 
-import Form from '@/components/Form';
+import Form from "@/components/Form";
 
-import Landing from '@/views/Landing.vue';
-import Dashboard from '@/views/Dashboard.vue';
-import Contribute from '@/views/Contribute.vue';
+import Landing from "@/views/Landing.vue";
+import Dashboard from "@/views/Dashboard.vue";
+import Contribute from "@/views/Contribute.vue";
 
 Vue.use(Router);
 
 export default new Router({
-  linkExactActiveClass: 'active',
-  mode: 'history',
+  linkExactActiveClass: "active",
+  mode: "history",
   routes: [
     {
-      path: '/',
-      name: 'Landing',
+      path: "/",
+      name: "Landing",
       component: Landing
     },
     {
-      path: '/dashboard',
-      name: 'Dashboard',
+      path: "/dashboard",
+      name: "Dashboard",
       component: RequiresAuth,
       children: [
         {
-          path: '',
-          name: 'Dashboard',
+          path: "",
+          name: "Dashboard",
           component: Dashboard
         }
       ]
     },
     {
-      path: '/contribute',
-      name: 'Contribute',
+      path: "/contribute",
+      name: "Contribute",
       component: RequiresAuth,
       children: [
         {
-          path: '',
-          name: 'Contribute',
+          path: "",
+          name: "Contribute",
           component: Contribute
         }
       ]
     },
     {
-      path: '/form',
-      name: 'Form',
+      path: "/form",
+      name: "Form",
       component: RequiresAuth,
       children: [
         {
-          path: '',
-          name: 'Form',
+          path: "",
+          name: "Form",
           component: Form
         }
       ]

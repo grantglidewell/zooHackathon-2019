@@ -42,7 +42,7 @@
       </div>
       <div>
         <h2 class="text-center text-primary">
-          Recent Entries
+          Recent Contributions
         </h2>
         <hr class="my-3" />
         <Entries :entries="$store.getters.entries" simple />

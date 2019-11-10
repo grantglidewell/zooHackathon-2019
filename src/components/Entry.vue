@@ -10,9 +10,7 @@
           />
         </div>
         <div class="row align-items-center pl-sm-2 w-100">
-          <div
-            :class="!simple ? 'col-12 col-sm-8' : 'd-flex align-items-center'"
-          >
+          <div class="col-12 col-sm-8">
             <h4 class="mb-0 mr-2">{{ entry.fields.animalName }}</h4>
             <small class="font-weight-bold">
               Submitted by: {{ entry.fields.user }}

@@ -7,29 +7,33 @@
       </div>
     </div>
 
-    <bar-chart :height="350" ref="barChart" :chart-data="redBarChart.chartData"></bar-chart>
+    <div v-if="chartData.datasets.length">
+      <bar-chart
+        :height="350"
+        ref="barChart"
+        :chart-data="chartData"
+      ></bar-chart>
+    </div>
   </card>
 </template>
 
 <script>
 export default {
   /* eslint-disable no-unused-vars */
-  data() {
-    return {
-      redBarChart: {
-        chartData: {
-          labels: this.$store.getters.topContributors.map(([name]) => name),
-          datasets: [
-            {
-              label: "contributions",
-              data: this.$store.getters.topContributors.map(
-                ([_, length]) => length
-              )
-            }
-          ]
-        }
-      }
-    };
+  computed: {
+    chartData() {
+      return {
+        labels: this.$store.getters.topContributors.map(([name]) => name),
+        datasets: [
+          {
+            label: "contributions",
+            data: this.$store.getters.topContributors.map(
+              ([_, length]) => length
+            )
+          }
+        ]
+      };
+    }
   }
 };
 </script>
