@@ -1,26 +1,51 @@
 <template>
-  <div>
-    <card>
-      <span style="display: flex">
-        <base-input v-model="url" label="url" style="flex: 3" />
-        <base-input v-model="name" label="Animal Name" style="flex: 1" />
-        <base-input v-model="price" label="Animal Price" style="flex: 1" />
-      </span>
-      <base-button @click="onSubmit">add</base-button>
-      <span v-if="endangered" class="text-red">This animal is possibly endangered</span>
-    </card>
-  </div>
+  <form @submit="onSubmit">
+    <base-alert v-if="error" type="danger">
+      You must fill out each field before submitting.
+    </base-alert>
+    <div class="row">
+      <div class="col-12">
+        <base-input
+          v-model="url"
+          label="Page URL"
+          placeholder="https://shadysite.com/"
+        />
+      </div>
+      <div class="col-12 col-md-6">
+        <base-input
+          v-model="name"
+          label="Animal Name"
+          placeholder="Redfoot Tortoises"
+        />
+      </div>
+      <div class="col-12 col-md-6">
+        <base-input v-model="price" label="Animal Price" placeholder="450" />
+      </div>
+    </div>
+    <base-button type="primary" @click="onSubmit">
+      Submit Contribution
+    </base-button>
+    <span v-if="endangered" class="text-red">
+      This animal is possibly endangered
+    </span>
+  </form>
 </template>
 <script>
 /* eslint-disable no-console */
 import { addTableRow } from "../util/api";
 import { debounce } from "../util/debounce";
 export default {
-  data: () => ({ url: "", name: "", price: "", endangered: false }),
+  data: () => ({
+    url: "",
+    name: "",
+    price: "",
+    endangered: false,
+    error: false
+  }),
   methods: {
     onSubmit: async function() {
       if (!this.url || !this.name || !this.price) {
-        return alert("you must fill in all fields");
+        return (this.error = true);
       }
       const res = await addTableRow([
         {
