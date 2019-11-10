@@ -13,6 +13,11 @@
         <li>Remember to enter the price per animal</li>
         <li>If an animal is possibly endangered it will be expedited to verification</li>
       </ul>
+      <small>
+        looking for a place to start? try
+        <a href="https://www.terraristik.com/tb/list_classifieds.php">terraristik</a> or
+        <a href="http://www.faunaclassifieds.com/">faunaclassifieds</a>
+      </small>
     </card>
     <card>
       <h3>Add an entry:</h3>
