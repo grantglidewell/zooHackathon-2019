@@ -35,8 +35,11 @@ const mutations = {
   SET_DASHBOARD_DATA(state, payload) {
     state.dashboardData = payload.records.reverse();
   },
+  ADD_DASHBOARD_DATA(state, payload) {
+    state.dashboardData = [payload, ...state.dashboardData];
+  },
   ADD_SESSION_CONTRIBUTION(state, payload) {
-    state.sessionContributions = [...state.sessionContributions, payload];
+    state.sessionContributions = [payload, ...state.sessionContributions];
   }
 };
 
@@ -49,9 +52,7 @@ const actions = {
     commit('SET_DASHBOARD_DATA', dashboardData);
   },
   addDashboardEntry({ commit }, newEntry) {
-    commit('SET_DASHBOARD_DATA', {
-      records: [...this.$store.state.dashboardData.reverse(), newEntry]
-    });
+    commit('ADD_DASHBOARD_DATA', newEntry);
   },
   logout({ commit }) {
     commit('SET_USER', { email: '' });
