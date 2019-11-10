@@ -10,7 +10,7 @@ Animals are traded illegally online. Many of the trades take place on bulletin b
 
 #### The Solution
 
-Fauna Lens allows crows sourcing of valuable data sets. These data sets are useful immediately in analyzing trends in trading markets, as well as contributing to training data so that the process can be automated with much greater efficiency later.
+Fauna Lens allows crowd sourcing of valuable data sets. These data sets are useful immediately in analyzing trends in trading markets, as well as contributing to training data so that the process can be automated with much greater efficiency later.
 
 #### How can I help?
 
