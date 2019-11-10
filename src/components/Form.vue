@@ -135,7 +135,7 @@ export default {
       this.name = "";
       this.price = "";
 
-      if (this.$store.getters.userEntries % 5 === 0) {
+      if (this.$store.getters.userEntries.length % 5 === 0) {
         this.step = 2;
       } else {
         this.$emit("submit");

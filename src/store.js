@@ -56,7 +56,7 @@ const getters = {
       });
   },
   rank(state, getters) {
-    return Math.floor(getters.userEntries.length / 5);
+    return Math.floor(getters.totalEntries / 5);
   },
   totalEntries(state, getters) {
     return getters.userEntries.length;
