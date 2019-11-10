@@ -33,22 +33,7 @@
             </div>
           </div>
         </div>
-        <!-- Navbar items -->
-        <ul v-if="!$store.state.email" class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <base-button type="link" class="nav-link nav-link-icon">
-              <i class="ni ni-circle-08"></i>
-              <span class="nav-link-inner--text">Register</span>
-            </base-button>
-          </li>
-          <li class="nav-item">
-            <base-button type="link" class="nav-link nav-link-icon">
-              <i class="ni ni-key-25"></i>
-              <span class="nav-link-inner--text">Login</span>
-            </base-button>
-          </li>
-        </ul>
-        <ul v-else class="navbar-nav ml-auto">
+        <ul v-if="$store.state.email" class="navbar-nav ml-auto">
           <li class="nav-item">
             <router-link
               to="/dashboard"

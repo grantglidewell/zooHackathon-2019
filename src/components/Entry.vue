@@ -16,7 +16,7 @@
           />
         </div>
         <div class="row align-items-center pl-md-4 w-100">
-          <div class="col-12 col-md-8">
+          <div class="col-12 col-sm-8">
             <h4 class="mb-0 mr-2">{{ entry.fields.animalName }}</h4>
             <small class="font-weight-bold">
               Submitted by: {{ entry.fields.user }}
@@ -29,7 +29,7 @@
           </div>
           <div
             v-if="!simple"
-            class="col-12 col-md-4 mt-2 mt-md-0 text-md-right"
+            class="col-12 col-sm-4 mt-2 mt-md-0 text-sm-right"
           >
             <div>
               <i class="ni ni-watch-time"></i>
