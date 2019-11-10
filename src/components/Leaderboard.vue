@@ -1,24 +1,29 @@
 <template>
-  <card v-if="$store.getters.topContributors.length" header-classes="bg-transparent">
-    <div slot="header" class="row align-items-center">
-      <div class="col">
-        <h5 class="h4 mb-0">Leading Contributors</h5>
+  <fade-transition>
+    <card
+      v-if="$store.getters.topContributors.length"
+      header-classes="bg-transparent"
+    >
+      <div v-if="chartData.datasets.length">
+        <bar-chart
+          :height="350"
+          ref="barChart"
+          :chart-data="chartData"
+        ></bar-chart>
       </div>
-    </div>
-
-    <div v-if="chartData.datasets.length">
-      <bar-chart
-        :height="350"
-        ref="barChart"
-        :chart-data="chartData"
-      ></bar-chart>
-    </div>
-  </card>
+    </card>
+  </fade-transition>
 </template>
 
 <script>
+import { FadeTransition } from "vue2-transitions";
+
 export default {
   /* eslint-disable no-unused-vars */
+  components: {
+    FadeTransition
+  },
+
   computed: {
     chartData() {
       return {
