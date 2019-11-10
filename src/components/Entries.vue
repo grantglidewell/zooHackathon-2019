@@ -6,6 +6,7 @@
         :key="item.fields.url"
         :entry="item"
         class="mb-2"
+        :simple="simple"
       >
       </entry>
     </ul>
@@ -18,6 +19,13 @@ import Entry from "@/components/Entry";
 export default {
   components: {
     Entry
+  },
+
+  props: {
+    simple: {
+      type: Boolean,
+      default: false
+    }
   },
 
   computed: {
