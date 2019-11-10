@@ -63,6 +63,7 @@ export default {
           callback: val => (this.endangered = val)
         });
       }
+      this.endangered = false;
     }
   }
 };
