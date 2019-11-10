@@ -1,11 +1,11 @@
 <template>
   <div class="landing">
     <div class="container">
-      <div class="row">
+      <div class="row mb-5 align-items-center">
         <div class="col-12 col-sm-6 col-lg-8 text-center text-sm-left">
           <img
             src="/static/fauna-lens-logo.png"
-            class=" mt-5 img-fluid pr-md-5 w-50 mb-4"
+            class=" mt-3 mt-sm-0 img-fluid pr-md-5 w-50 mb-4"
             alt="Fauna Lens Logo Blue Transparent"
           />
           <p class="font-lg font-weight-bold">
@@ -13,6 +13,9 @@
             dolores rerum repellendus nisi natus cum magni quibusdam reiciendis
             iusto obcaecati.
           </p>
+          <span class="text-primary">
+            Start contributing today by registering.
+          </span>
         </div>
         <div class="col-12 col-sm-6 col-lg-4">
           <tabs fill class="flex-column flex-md-row">
@@ -37,6 +40,11 @@
           </tabs>
         </div>
       </div>
+      <div>
+        <h2 class="text-center text-primary">Recent Entries</h2>
+        <hr class="my-3" />
+        <Entries simple />
+      </div>
     </div>
   </div>
 </template>
@@ -44,11 +52,13 @@
 <script>
 import Login from "@/components/Login";
 import Register from "@/components/Register";
+import Entries from "@/components/Entries";
 
 export default {
   components: {
     Login,
-    Register
+    Register,
+    Entries
   },
 
   data: () => ({

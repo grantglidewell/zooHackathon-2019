@@ -1,6 +1,6 @@
 <template>
   <div class="card bg-secondary shadow border-0">
-    <div class="card-body px-lg-5 py-lg-5">
+    <div class="card-body p-2">
       <div class="text-center text-muted mb-4">
         <small>Register</small>
       </div>
