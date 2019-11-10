@@ -6,6 +6,7 @@
       <badge type="primary">{{ $store.state.email }}</badge>
     </div>
     <card>
+      <Leaderboard />
       <h3>Your recent entries:</h3>
       <Entries :entries="$store.getters.userEntries" />
     </card>
@@ -14,10 +15,11 @@
 
 <script>
 import Entries from "@/components/Entries";
-
+import Leaderboard from "@/components/Leaderboard";
 export default {
   components: {
-    Entries
+    Entries,
+    Leaderboard
   }
 };
 </script>

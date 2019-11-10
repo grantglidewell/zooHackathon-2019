@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import Vue from 'vue';
 import Vuex from 'vuex';
 import { getTableData } from './util/api';
@@ -16,7 +17,6 @@ const getters = {
   entries(state) {
     return state.dashboardData;
   },
-
   userEntries(state) {
     return state.dashboardData.filter(
       entry => entry.fields.user === state.email
@@ -24,6 +24,20 @@ const getters = {
   },
   sessionContributions(state) {
     return state.sessionContributions;
+  },
+  topContributors(state) {
+    return Object.entries(
+      state.dashboardData.reduce((acc, entry) => {
+        if (acc[entry.fields.user]) {
+          acc[entry.fields.user] = acc[entry.fields.user] + 1;
+        } else {
+          acc[entry.fields.user] = 1;
+        }
+        return acc;
+      }, {})
+    ).sort(([_user, Alength], [_busr, Blength]) =>
+      Alength < Blength ? 1 : -1
+    );
   }
 };
 
