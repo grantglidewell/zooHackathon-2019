@@ -4,6 +4,7 @@
       Welcome back, <badge type="primary">{{ $store.state.email }}</badge>
     </div>
     <card shadow>
+      <Leaderboard />
       <div class="d-sm-flex align-items-center text-center text-sm-left">
         <h3>Recent Entries:</h3>
         <div class="flex-grow-1"></div>
@@ -57,10 +58,6 @@
           <Entries :entries="$store.getters.entries" />
         </tab-pane>
       </tabs>
-    <card>
-      <Leaderboard />
-      <h3>Your recent entries:</h3>
-      <Entries :entries="$store.getters.userEntries" />
     </card>
   </div>
 </template>
