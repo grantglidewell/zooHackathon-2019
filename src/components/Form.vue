@@ -36,6 +36,8 @@ export default {
       if (res.error) {
         return alert("there was a problem with the submission");
       }
+      console.log(res);
+      this.$store.dispatch("setSessionContribution", res.records[0]);
       this.url = "";
       this.name = "";
       this.price = "";

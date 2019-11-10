@@ -8,7 +8,8 @@ Vue.use(Vuex);
 const state = {
   email: localStorage.getItem('email') || '',
   dashboardData: [],
-  endangeredSpecies: endangeredSpecies.data
+  endangeredSpecies: endangeredSpecies.data,
+  sessionContributions: []
 };
 
 const mutations = {
@@ -18,6 +19,9 @@ const mutations = {
   },
   SET_DASHBOARD_DATA(state, payload) {
     state.dashboardData = payload.records;
+  },
+  ADD_SESSION_CONTRIBUTION(state, payload) {
+    state.sessionContributions = [...state.sessionContributions, payload];
   }
 };
 
@@ -31,6 +35,9 @@ const actions = {
   },
   logout({ commit }) {
     commit('SET_USER', { email: '' });
+  },
+  setSessionContribution({ commit }, payload) {
+    commit('ADD_SESSION_CONTRIBUTION', payload);
   }
 };
 

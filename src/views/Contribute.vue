@@ -15,7 +15,9 @@
       </ul>
       <small>
         looking for a place to start? try
-        <a href="https://www.terraristik.com/tb/list_classifieds.php">terraristik</a> or
+        <a
+          href="https://www.terraristik.com/tb/list_classifieds.php"
+        >terraristik</a> or
         <a href="http://www.faunaclassifieds.com/">faunaclassifieds</a>
       </small>
     </card>
@@ -30,6 +32,11 @@
 import Form from "@/components/Form";
 
 export default {
+  computed: {
+    newContribs() {
+      return this.$store.state.sessionContributions;
+    }
+  },
   components: {
     Form
   }
