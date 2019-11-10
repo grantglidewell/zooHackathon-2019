@@ -1,12 +1,12 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
-import { getTableData } from './util/api';
-import endangeredSpecies from './util/endangered.json';
+import Vue from "vue";
+import Vuex from "vuex";
+import { getTableData } from "./util/api";
+import endangeredSpecies from "./util/endangered.json";
 
 Vue.use(Vuex);
 
 const state = {
-  email: localStorage.getItem('email') || '',
+  email: localStorage.getItem("email") || "",
   dashboardData: [],
   endangeredSpecies: endangeredSpecies.data,
   sessionContributions: []
@@ -30,10 +30,12 @@ const getters = {
 const mutations = {
   SET_USER(state, payload) {
     state.email = payload.email;
-    localStorage.setItem('email', payload.email);
+    localStorage.setItem("email", payload.email);
   },
   SET_DASHBOARD_DATA(state, payload) {
-    state.dashboardData = payload.records.reverse();
+    state.dashboardData = payload.records.sort((a, b) => {
+      return a.fields.id > b.fields.id ? -1 : 1;
+    });
   },
   ADD_DASHBOARD_DATA(state, payload) {
     state.dashboardData = [payload, ...state.dashboardData];
@@ -45,20 +47,20 @@ const mutations = {
 
 const actions = {
   login({ commit }, userData) {
-    commit('SET_USER', userData);
+    commit("SET_USER", userData);
   },
   async getDashboardData({ commit }) {
     const dashboardData = await getTableData();
-    commit('SET_DASHBOARD_DATA', dashboardData);
+    commit("SET_DASHBOARD_DATA", dashboardData);
   },
   addDashboardEntry({ commit }, newEntry) {
-    commit('ADD_DASHBOARD_DATA', newEntry);
+    commit("ADD_DASHBOARD_DATA", newEntry);
   },
   logout({ commit }) {
-    commit('SET_USER', { email: '' });
+    commit("SET_USER", { email: "" });
   },
   setSessionContribution({ commit }, payload) {
-    commit('ADD_SESSION_CONTRIBUTION', payload);
+    commit("ADD_SESSION_CONTRIBUTION", payload);
   }
 };
 
