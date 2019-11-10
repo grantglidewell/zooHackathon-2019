@@ -3,7 +3,7 @@
     <ul v-if="entries" class="pl-0 list-unstyled">
       <entry
         v-for="item in entries"
-        :key="item.fields.url"
+        :key="item.id"
         :entry="item"
         class="mb-2"
         :simple="simple"

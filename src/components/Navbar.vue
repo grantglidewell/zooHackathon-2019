@@ -4,7 +4,7 @@
     <base-nav
       type="primary"
       class="navbar-horizontal navbar-dark"
-      containerClasses="px-4 container"
+      containerClasses="container"
       expand
     >
       <router-link slot="brand" class="navbar-brand" to="/">
@@ -50,13 +50,21 @@
         </ul>
         <ul v-else class="navbar-nav ml-auto">
           <li class="nav-item">
-            <router-link to="/dashboard" type="link" class="nav-link nav-link-icon">
+            <router-link
+              to="/dashboard"
+              type="link"
+              class="nav-link nav-link-icon"
+            >
               <i class="ni ni-bullet-list-67"></i>
               <span class="nav-link-inner--text">Dashboard</span>
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/contribute" type="link" class="nav-link nav-link-icon">
+            <router-link
+              to="/contribute"
+              type="link"
+              class="nav-link nav-link-icon"
+            >
               <i class="ni ni-world"></i>
               <span class="nav-link-inner--text">Contribute</span>
             </router-link>
