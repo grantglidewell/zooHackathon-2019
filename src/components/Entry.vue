@@ -9,16 +9,16 @@
             class="entry__image img-fluid avatar"
           />
         </div>
-        <div class="row align-items-center m-0 pl-sm-2 w-100">
+        <div class="row align-items-center pl-sm-2 w-100">
           <div
-            :class="!simple ? 'col-12 col-sm-6' : 'd-flex align-items-center'"
+            :class="!simple ? 'col-12 col-sm-8' : 'd-flex align-items-center'"
           >
             <h4 class="mb-0 mr-2">{{ entry.fields.animalName }}</h4>
             <small class="font-weight-bold">
               Submitted by: {{ entry.fields.user }}
             </small>
           </div>
-          <div v-if="!simple" class="col-12 col-sm-6 text-sm-right">
+          <div v-if="!simple" class="col-12 col-sm-4 text-sm-right">
             <div>
               <i class="ni ni-watch-time"></i>
               {{ entry.createdTime | moment("from", "now") }}
