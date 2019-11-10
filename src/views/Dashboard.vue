@@ -57,6 +57,10 @@
           <Entries :entries="$store.getters.entries" />
         </tab-pane>
       </tabs>
+    <card>
+      <Leaderboard />
+      <h3>Your recent entries:</h3>
+      <Entries :entries="$store.getters.userEntries" />
     </card>
   </div>
 </template>
@@ -64,11 +68,13 @@
 <script>
 import Entries from "@/components/Entries";
 import Form from "@/components/Form";
+import Leaderboard from "@/components/Leaderboard";
 
 export default {
   components: {
     Entries,
-    Form
+    Form,
+    Leaderboard
   },
 
   data: () => ({

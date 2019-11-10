@@ -1,25 +1,27 @@
-import Badge from "../components/globals/Badge";
-import BaseAlert from "../components/globals/BaseAlert";
-import BaseButton from "../components/globals/BaseButton";
-import BaseCheckbox from "../components/globals/BaseCheckbox";
-import BaseInput from "../components/globals/BaseInput";
-import BaseDropdown from "../components/globals/BaseDropdown";
-import BaseNav from "../components/globals/BaseNav";
-import BasePagination from "../components/globals/BasePagination";
-import BaseProgress from "../components/globals/BaseProgress";
-import BaseRadio from "../components/globals/BaseRadio";
-import BaseSlider from "../components/globals/BaseSlider";
-import BaseSwitch from "../components/globals/BaseSwitch";
-import BaseTable from "../components/globals/BaseTable";
-import BaseHeader from "../components/globals/BaseHeader";
-import Card from "../components/globals/Card";
-import StatsCard from "../components/globals/StatsCard";
-import Modal from "../components/globals/Modal";
-import TabPane from "../components/globals/Tabs/TabPane";
-import Tabs from "../components/globals/Tabs/Tabs";
+import Badge from '../components/globals/Badge';
+import BaseAlert from '../components/globals/BaseAlert';
+import BaseButton from '../components/globals/BaseButton';
+import BaseCheckbox from '../components/globals/BaseCheckbox';
+import BaseInput from '../components/globals/BaseInput';
+import BaseDropdown from '../components/globals/BaseDropdown';
+import BaseNav from '../components/globals/BaseNav';
+import BasePagination from '../components/globals/BasePagination';
+import BaseProgress from '../components/globals/BaseProgress';
+import BaseRadio from '../components/globals/BaseRadio';
+import BaseSlider from '../components/globals/BaseSlider';
+import BaseSwitch from '../components/globals/BaseSwitch';
+import BaseTable from '../components/globals/BaseTable';
+import BaseHeader from '../components/globals/BaseHeader';
+import Card from '../components/globals/Card';
+import StatsCard from '../components/globals/StatsCard';
+import Modal from '../components/globals/Modal';
+import TabPane from '../components/globals/Tabs/TabPane';
+import Tabs from '../components/globals/Tabs/Tabs';
+import BarChart from '../components/globals/Charts/BarChart';
 
 export default {
   install(Vue) {
+    Vue.component(BarChart.name, BarChart);
     Vue.component(Badge.name, Badge);
     Vue.component(BaseAlert.name, BaseAlert);
     Vue.component(BaseButton.name, BaseButton);
