@@ -12,7 +12,6 @@
           @click="$store.dispatch('changeEmoji', emoji)"
           type="link"
           :disabled="$store.state.rank.emoji === emoji"
-          title="This is already your current emoji"
         >
           {{ emoji }}
         </base-button>

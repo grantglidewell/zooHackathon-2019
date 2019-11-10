@@ -66,7 +66,7 @@
         <h3>Recent Contributions:</h3>
         <div class="flex-grow-1"></div>
         <base-button type="primary" @click="isContribute = true">
-          Contribute
+          <i class="ni ni-world"></i> Contribute
         </base-button>
         <modal :show.sync="isContribute">
           <template slot="header">
