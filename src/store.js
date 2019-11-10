@@ -12,13 +12,25 @@ const state = {
   sessionContributions: []
 };
 
+const getters = {
+  entries(state) {
+    return state.dashboardData;
+  },
+
+  userEntries(state) {
+    return state.dashboardData.filter(
+      entry => entry.fields.user === state.email
+    );
+  }
+};
+
 const mutations = {
   SET_USER(state, payload) {
     state.email = payload.email;
     localStorage.setItem('email', payload.email);
   },
   SET_DASHBOARD_DATA(state, payload) {
-    state.dashboardData = payload.records;
+    state.dashboardData = payload.records.reverse();
   },
   ADD_SESSION_CONTRIBUTION(state, payload) {
     state.sessionContributions = [...state.sessionContributions, payload];
@@ -43,6 +55,7 @@ const actions = {
 
 export default new Vuex.Store({
   state,
+  getters,
   mutations,
   actions
 });

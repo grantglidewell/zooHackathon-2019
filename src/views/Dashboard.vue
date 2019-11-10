@@ -7,7 +7,7 @@
     </div>
     <card>
       <h3>Your recent entries:</h3>
-      <Entries />
+      <Entries :entries="$store.getters.userEntries" />
     </card>
   </div>
 </template>

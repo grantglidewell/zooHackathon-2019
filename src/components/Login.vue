@@ -1,6 +1,6 @@
 <template>
   <div class="card bg-secondary shadow border-0">
-    <div class="card-body px-lg-5 py-lg-5">
+    <div class="card-body p-2">
       <div class="text-center text-muted mb-4">
         <small>Log In</small>
       </div>
@@ -23,9 +23,9 @@
         </base-input>
 
         <div class="text-center">
-          <base-button @click="onLogin" type="primary" class="my-4"
-            >Sign in</base-button
-          >
+          <base-button @click="onLogin" type="primary" class="my-4">
+            Sign in
+          </base-button>
         </div>
       </form>
     </div>
@@ -41,7 +41,12 @@ export default {
   }),
 
   methods: {
-    onLogin() {}
+    onLogin() {
+      if (!this.email) {
+        alert("You must enter an email");
+      }
+      this.$store.dispatch("login", { email: this.email });
+    }
   }
 };
 </script>
