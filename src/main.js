@@ -8,6 +8,7 @@ import VueCompositionApi from "@vue/composition-api";
 
 Vue.use(VueCompositionApi);
 Vue.use(ArgonDashboard);
+Vue.use(require("vue-moment"));
 
 import store from "@/store";
 

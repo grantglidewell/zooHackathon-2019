@@ -47,7 +47,9 @@ const mutations = {
     localStorage.setItem('email', payload.email);
   },
   SET_DASHBOARD_DATA(state, payload) {
-    state.dashboardData = payload.records.reverse();
+    state.dashboardData = payload.records.sort((a, b) => {
+      return a.fields.id > b.fields.id ? -1 : 1;
+    });
   },
   ADD_DASHBOARD_DATA(state, payload) {
     state.dashboardData = [payload, ...state.dashboardData];

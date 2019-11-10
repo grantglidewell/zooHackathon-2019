@@ -21,7 +21,7 @@
           <div v-if="!simple" class="col-12 col-sm-6 text-sm-right">
             <div>
               <i class="ni ni-watch-time"></i>
-              {{ entry.createdTime }}
+              {{ entry.createdTime | moment("from", "now") }}
             </div>
             <div>${{ entry.fields.animalPrice }}</div>
           </div>
