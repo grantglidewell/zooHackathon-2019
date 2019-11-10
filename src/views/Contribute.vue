@@ -25,20 +25,17 @@
       <h3>Add an entry:</h3>
       <Form />
     </card>
+    <Entries :entries="$store.getters.sessionContributions" />
   </div>
 </template>
 
 <script>
 import Form from "@/components/Form";
-
+import Entries from "@/components/Entries";
 export default {
-  computed: {
-    newContribs() {
-      return this.$store.state.sessionContributions;
-    }
-  },
   components: {
-    Form
+    Form,
+    Entries
   }
 };
 </script>

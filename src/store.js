@@ -21,6 +21,9 @@ const getters = {
     return state.dashboardData.filter(
       entry => entry.fields.user === state.email
     );
+  },
+  sessionContributions(state) {
+    return state.sessionContributions;
   }
 };
 
@@ -44,6 +47,11 @@ const actions = {
   async getDashboardData({ commit }) {
     const dashboardData = await getTableData();
     commit('SET_DASHBOARD_DATA', dashboardData);
+  },
+  addDashboardEntry({ commit }, newEntry) {
+    commit('SET_DASHBOARD_DATA', {
+      records: [...this.$store.state.dashboardData.reverse(), newEntry]
+    });
   },
   logout({ commit }) {
     commit('SET_USER', { email: '' });
