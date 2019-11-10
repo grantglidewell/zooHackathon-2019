@@ -17,7 +17,7 @@
             Start contributing today by registering.
           </span>
         </div>
-        <div class="col-12 col-md-6 col-lg-4">
+        <div v-if="!$store.state.email" class="col-12 col-md-6 col-lg-4">
           <tabs fill class="flex-column flex-md-row">
             <card shadow>
               <tab-pane>
@@ -41,9 +41,11 @@
         </div>
       </div>
       <div>
-        <h2 class="text-center text-primary">Recent Entries</h2>
+        <h2 class="text-center text-primary">
+          Recent Entries
+        </h2>
         <hr class="my-3" />
-        <Entries simple />
+        <Entries :entries="$store.getters.entries" simple />
       </div>
     </div>
   </div>

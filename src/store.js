@@ -11,6 +11,18 @@ const state = {
   endangeredSpecies: endangeredSpecies.data
 };
 
+const getters = {
+  entries(state) {
+    return state.dashboardData;
+  },
+
+  userEntries(state) {
+    return state.dashboardData.filter(
+      entry => entry.fields.user === state.email
+    );
+  }
+};
+
 const mutations = {
   SET_USER(state, payload) {
     state.email = payload.email;
@@ -36,6 +48,7 @@ const actions = {
 
 export default new Vuex.Store({
   state,
+  getters,
   mutations,
   actions
 });

@@ -1,8 +1,8 @@
 <template>
   <div class="entries">
-    <ul class="pl-0 list-unstyled">
+    <ul v-if="entries" class="pl-0 list-unstyled">
       <entry
-        v-for="item in userEntries"
+        v-for="item in entries"
         :key="item.fields.url"
         :entry="item"
         class="mb-2"
@@ -10,6 +10,9 @@
       >
       </entry>
     </ul>
+    <div class="text-center">
+      No entries found.
+    </div>
   </div>
 </template>
 
@@ -22,17 +25,13 @@ export default {
   },
 
   props: {
+    entries: {
+      type: Array,
+      required: true
+    },
     simple: {
       type: Boolean,
       default: false
-    }
-  },
-
-  computed: {
-    userEntries() {
-      return this.$store.state.dashboardData.filter(
-        entry => entry.fields.user === this.$store.state.email
-      );
     }
   }
 };
