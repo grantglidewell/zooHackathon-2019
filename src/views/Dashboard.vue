@@ -1,13 +1,63 @@
 <template>
   <div class="dashboard">
-    <div class="mb-3">
+    <card class="mb-3" shadow>
       Welcome back, <badge type="primary">{{ $store.state.email }}</badge>
-    </div>
+      <br />
+      <div class="row mt-3">
+        <div class="col-12 col-md-3">
+          <div>Current Rank:</div>
+          <base-button
+            @click="isEmojiChooser = true"
+            type="clear"
+            class="p-0 w-100"
+            title="Change Emoji"
+          >
+            <badge type="success" class="w-100">
+              <rank
+                :rank="$store.getters.rank"
+                :emoji="$store.state.rank.emoji"
+              />
+            </badge>
+          </base-button>
+          <modal :show.sync="isEmojiChooser">
+            <template slot="header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Change your Emoji
+              </h5>
+            </template>
+            <p>
+              Animal emojis are collected for completing contributions. Every
+              time you rank up, you get a random one.
+            </p>
+            <EmojiChooser />
+          </modal>
+        </div>
+        <div class="col-12 col-md-9">
+          <base-progress
+            type="success"
+            :height="5"
+            :value="($store.getters.totalEntries % 5) * 20"
+            :label="`Progress to rank ${$store.getters.rank + 1}`"
+          ></base-progress>
+        </div>
+      </div>
+    </card>
     <card shadow class="mb-4">
-      <h3>Top Contibutors</h3>
       <div class="row">
         <div class="col-12 col-md-8">
+          <h3>Top Contibutors</h3>
           <Leaderboard />
+        </div>
+        <div class="col-12 col-md-4">
+          <h3>Highest Ranks</h3>
+          <div style="max-height:398px;overflow-y:auto;overflow-x:hidden">
+            <base-table
+              :columns="['rank', 'user']"
+              :data="topContributors"
+              typed="striped"
+            >
+            </base-table>
+          </div>
         </div>
       </div>
     </card>
@@ -55,17 +105,32 @@
 import Entries from "@/components/Entries";
 import Form from "@/components/Form";
 import Leaderboard from "@/components/Leaderboard";
+import Rank from "@/components/Rank";
+import EmojiChooser from "@/components/EmojiChooser";
 
 export default {
   components: {
     Entries,
     Form,
-    Leaderboard
+    Leaderboard,
+    Rank,
+    EmojiChooser
   },
 
   data: () => ({
-    isContribute: false
-  })
+    isContribute: false,
+    isEmojiChooser: false
+  }),
+
+  computed: {
+    topContributors() {
+      const contrs = [];
+      this.$store.getters.topContributors.forEach(contr => {
+        contrs.push({ user: contr[0], rank: Math.floor(contr[1] / 5) });
+      });
+      return contrs;
+    }
+  }
 };
 </script>
 

@@ -5,10 +5,13 @@
       <br />
       <badge type="primary">{{ $store.state.email }}</badge>
     </div>
-    <card>
+    <card shadow>
       <Form />
     </card>
-    <Entries :entries="$store.getters.sessionContributions" />
+    <card class="mt-3" shadow>
+      <h3 class="text-center">Your Contributions This Session</h3>
+      <Entries :entries="$store.getters.sessionContributions" />
+    </card>
   </div>
 </template>
 

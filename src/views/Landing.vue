@@ -45,7 +45,7 @@
           Recent Contributions
         </h2>
         <hr class="my-3" />
-        <Entries :entries="$store.getters.entries" simple />
+        <Entries :entries="$store.getters.entries" />
       </div>
     </div>
   </div>

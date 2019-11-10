@@ -4,13 +4,19 @@ import Vuex from "vuex";
 import { getTableData } from "./util/api";
 import endangeredSpecies from "./util/endangered.json";
 
+import emojis from "@/data/emojis.js";
+
 Vue.use(Vuex);
 
 const state = {
   email: localStorage.getItem("email") || "",
   dashboardData: [],
   endangeredSpecies: endangeredSpecies.data,
-  sessionContributions: []
+  sessionContributions: [],
+  rank: {
+    emoji: localStorage.getItem("rank-emoji") || "🙊",
+    unlocked: JSON.parse(localStorage.getItem("rank-unlocked")) || ["🙊"]
+  }
 };
 
 const getters = {
@@ -40,9 +46,20 @@ const getters = {
         }
         return acc;
       }, {})
-    ).sort(([_user, Alength], [_busr, Blength]) =>
-      Alength < Blength ? 1 : -1
-    );
+    )
+      .sort(([_user, Alength], [_busr, Blength]) =>
+        Alength < Blength ? 1 : -1
+      )
+      .map(entry => {
+        entry[2] = emojis.getRandom();
+        return entry;
+      });
+  },
+  rank(state, getters) {
+    return Math.floor(getters.userEntries.length / 5);
+  },
+  totalEntries(state, getters) {
+    return getters.userEntries.length;
   }
 };
 
@@ -61,6 +78,15 @@ const mutations = {
   },
   ADD_SESSION_CONTRIBUTION(state, payload) {
     state.sessionContributions = [payload, ...state.sessionContributions];
+  },
+  SET_EMOJI(state, payload) {
+    state.rank.emoji = payload;
+    localStorage.setItem("rank-emoji", payload);
+  },
+  UNLOCK_EMOJI(state, payload) {
+    const unlocked = [...state.rank.unlocked, payload];
+    state.rank.unlocked = unlocked;
+    localStorage.setItem("rank-unlocked", JSON.stringify(unlocked));
   }
 };
 
@@ -80,6 +106,12 @@ const actions = {
   },
   setSessionContribution({ commit }, payload) {
     commit("ADD_SESSION_CONTRIBUTION", payload);
+  },
+  changeEmoji({ commit }, emoji) {
+    commit("SET_EMOJI", emoji);
+  },
+  unlockEmoji({ commit }, emoji) {
+    commit("UNLOCK_EMOJI", emoji);
   }
 };
 
