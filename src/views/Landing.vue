@@ -1,13 +1,41 @@
 <template>
   <div class="landing">
     <div class="container">
-      <Login v-if="showLogin" />
-      <Register v-else />
-      <div class="text-center mt-4">
-        <base-button
-          @click="showLogin = !showLogin"
-          type="primary"
-        >{{ showLogin ? "Register" : "Login" }} Instead</base-button>
+      <div class="row">
+        <div class="col-12 col-sm-6 col-lg-8 text-center text-sm-left">
+          <img
+            src="/static/fauna-lens-logo.png"
+            class=" mt-5 img-fluid pr-md-5 w-50 mb-4"
+            alt="Fauna Lens Logo Blue Transparent"
+          />
+          <p class="font-lg font-weight-bold">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias
+            dolores rerum repellendus nisi natus cum magni quibusdam reiciendis
+            iusto obcaecati.
+          </p>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-4">
+          <tabs fill class="flex-column flex-md-row">
+            <card shadow>
+              <tab-pane>
+                <span slot="title">
+                  Register
+                </span>
+                <p class="description">
+                  <Register />
+                </p>
+              </tab-pane>
+              <tab-pane>
+                <span slot="title">
+                  Login
+                </span>
+                <p class="description">
+                  <Login />
+                </p>
+              </tab-pane>
+            </card>
+          </tabs>
+        </div>
       </div>
     </div>
   </div>

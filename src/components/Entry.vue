@@ -17,16 +17,16 @@
                 Submitted by: {{ entry.fields.user }}
               </small>
             </div>
-            <div class="d-flex justify-content-end w-100">
-              <span>
+            <div class="text-sm-right">
+              <div>
                 <i class="ni ni-watch-time"></i>
                 {{ entry.createdTime }}
-              </span>
+              </div>
+              <div>${{ entry.fields.animalPrice }}</div>
             </div>
           </div>
         </div>
       </div>
-      {{ entry }}
     </card>
   </li>
 </template>

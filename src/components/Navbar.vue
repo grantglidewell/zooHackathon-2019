@@ -8,7 +8,7 @@
       expand
     >
       <router-link slot="brand" class="navbar-brand" to="/">
-        <img src="img/brand/white.png" />
+        <img src="/static/fauna-lens-logo-white.png" />
       </router-link>
 
       <template v-slot="{ closeMenu }">
