@@ -2,7 +2,7 @@
   <div class="landing">
     <div class="container">
       <div class="row mb-5 align-items-center">
-        <div class="col-12 col-sm-6 col-lg-8 text-center text-sm-left">
+        <div class="col-12 col-md-6 col-lg-8 text-center text-sm-left">
           <img
             src="/static/fauna-lens-logo.png"
             class=" mt-3 mt-sm-0 img-fluid pr-md-5 w-50 mb-4"
@@ -17,7 +17,7 @@
             Start contributing today by registering.
           </span>
         </div>
-        <div class="col-12 col-sm-6 col-lg-4">
+        <div class="col-12 col-md-6 col-lg-4">
           <tabs fill class="flex-column flex-md-row">
             <card shadow>
               <tab-pane>
